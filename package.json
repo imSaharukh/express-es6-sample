@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "author": {
-    "name": "S A",
+    "name": "Jonathan Cunanan",
     "url": "https://github.com/jcunanan05"
   },
   "license": "MIT",
@@ -40,13 +40,15 @@
   "jest": {
     "testEnvironment": "node"
   },
-"scripts": {
-  "start": "node ./bin/www",
-  "build": "echo 'Skipping Babel transpile step on Elastic Beanstalk'",
-  "server": "node ./bin/www",
-  "dev": "NODE_ENV=development node ./bin/www",
-  "prod": "NODE_ENV=production node ./bin/www",
-  "test": "jest"
-}
-
+  "scripts": {
+    "start": "npm run prod",
+    "build": "npm run clean && npm run transpile",
+    "server": "node ./dist-server/bin/www",
+    "dev": "NODE_ENV=development npm run server",
+    "prod": "NODE_ENV=production npm run server",
+    "transpile": "babel ./server --out-dir dist-server",
+    "clean": "rm -rf dist-server",
+    "watch:dev": "nodemon",
+    "test": "jest"
+  }
 }

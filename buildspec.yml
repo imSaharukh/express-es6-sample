@@ -13,8 +13,8 @@ artifacts:
   files:
     - package.json
     - package-lock.json
-    - dist-server/*/ 
-    - public/*/ 
+    - dist-server/**/* 
+    - public/**/* 
     - buildspec-test.yml 
     - Procfile
   discard-paths: no
