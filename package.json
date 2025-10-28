@@ -3,8 +3,8 @@
   "version": "0.2.0",
   "private": true,
   "author": {
-    "name": "S A Saharukh",
-    "url": "https://github.com/imSaharukh"
+    "name": "Jonathan Cunanan",
+    "url": "https://github.com/jcunanan05"
   },
   "license": "MIT",
   "dependencies": {
@@ -41,11 +41,14 @@
     "testEnvironment": "node"
   },
 "scripts": {
-  "start": "node ./server/bin/www",
-  "build": "echo 'Build not required for AWS Elastic Beanstalk'",
-  "server": "node ./server/bin/www",
-  "dev": "NODE_ENV=development node ./server/bin/www",
-  "prod": "NODE_ENV=production node ./server/bin/www",
+  "start": "npm run build && npm run prod",
+  "build": "npm run clean && npm run transpile",
+  "server": "node ./dist-server/bin/www",
+  "dev": "NODE_ENV=development npm run server",
+  "prod": "NODE_ENV=production npm run server",
+  "transpile": "babel ./server --out-dir dist-server",
+  "clean": "rm -rf dist-server",
+  "watch:dev": "nodemon",
   "test": "jest"
- }
+}
 }
