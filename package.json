@@ -41,14 +41,12 @@
     "testEnvironment": "node"
   },
 "scripts": {
-  "start": "npm run build && npm run prod",
-  "build": "npm run clean && npm run transpile",
-  "server": "node ./dist-server/bin/www",
-  "dev": "NODE_ENV=development npm run server",
-  "prod": "NODE_ENV=production npm run server",
-  "transpile": "babel ./server --out-dir dist-server",
-  "clean": "rm -rf dist-server",
-  "watch:dev": "nodemon",
+  "start": "node ./bin/www",
+  "build": "echo 'Skipping Babel transpile step on Elastic Beanstalk'",
+  "server": "node ./bin/www",
+  "dev": "NODE_ENV=development node ./bin/www",
+  "prod": "NODE_ENV=production node ./bin/www",
   "test": "jest"
 }
+
 }
